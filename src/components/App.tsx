@@ -1,5 +1,11 @@
+import Home from "../pages/Home";
+
 const App = () => {
-  return <div className="flex text-xl font-bold">Hello</div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 };
 
 export default App;
