@@ -5,6 +5,7 @@
     ],
     "jsRules": {},
     "rules": {
+        "no-console": false,
         "import-name": [
             true,
             {
@@ -14,7 +15,8 @@
     },
     "linterOptions": {
         "exclude": [
-            "node_modules"
+            "node_modules",
+            "./node_modules"
         ]
     },
     "rulesDirectory": []
