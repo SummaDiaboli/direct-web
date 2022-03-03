@@ -3,13 +3,19 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Routes from "../../utils/routes";
 
+import AnonImage from "../../assets/images/anon.svg";
+import DataLockImage from "../../assets/images/datalock1.svg";
+import SecurityImage from "../../assets/images/secure.svg";
+import GhostKeyboardImage from "../../assets/images/ghostkey.svg";
+import QRCodeImage from "../../assets/images/qrcode.svg";
+
 const Home = () => {
     return (
         <div className="bg-[#383B3F] min-h-screen">
             <Header />
 
             {/* Banner */}
-            <div className="bg-[#1D1F25] flex flex-col text-white mt-3 px-48 py-5 space-y-6 shadow-md">
+            <div className="bg-[#1D1F25] flex flex-col text-white mt-3 px-48 py-5 space-y-6 shadow-md small-caps">
                 <div>
                     Tired of receiving emails about compromised passwords?
                 </div>
@@ -40,52 +46,68 @@ const Home = () => {
                     <hr className="w-2/6 mt-5 h-5" />
                 </div>
 
-                <div className="px-48 w-3/5">
-                    <div className="small-caps font-bold">
-                        The Promise of Security
+                <div className="flex flex-row justify-between px-48">
+                    <div className=" w-3/5">
+                        <div className="small-caps font-bold">
+                            The Promise of Security
+                        </div>
+                        <div className="text-justify">
+                            Direct offers password security for its users by not
+                            offering them passwords at all. We assure security
+                            by removing the big point of failure in the form of
+                            passwords.
+                        </div>
                     </div>
-                    <div className="text-justify">
-                        Direct offers password security for its users by not
-                        offering them passwords at all. We assure security by
-                        removing the big point of failure in the form of
-                        passwords.
+
+                    <img src={DataLockImage} className="h-32" />
+                </div>
+
+                <div className="flex flex-row justify-between px-48">
+                    <img src={AnonImage} className="h-32" />
+
+                    <div className="w-3/5">
+                        <div className="small-caps font-bold">
+                            The Promise of Anonymity
+                        </div>
+                        <div className="text-justify">
+                            Direct promises its users the ability to remain
+                            anonymous online. The ability to use the internet at
+                            your leisure without worrying about your identity
+                            being used for nefarious purposes is one we take
+                            very seriously
+                        </div>
                     </div>
                 </div>
 
-                <div className="px-48 w-3/5">
-                    <div className="small-caps font-bold">
-                        The Promise of Anonymity
+                <div className="flex flex-row justify-between px-48">
+                    <div className="w-3/5">
+                        <div className="small-caps font-bold">
+                            The Promise of Seamless Authentication
+                        </div>
+                        <div className="text-justify">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Odio non tincidunt vitae varius faucibus.
+                            Vivamus viverra urna, suspendisse libero eget fames
+                            velit sit nec.
+                        </div>
                     </div>
-                    <div className="text-justify">
-                        Direct promises its users the ability to remain
-                        anonymous online. The ability to use the internet at
-                        your leisure without worrying about your identity being
-                        used for nefarious purposes is one we take very
-                        seriously
-                    </div>
+
+                    <img src={SecurityImage} className="h-32" />
                 </div>
 
-                <div className="px-48 w-3/5">
-                    <div className="small-caps font-bold">
-                        The Promise of Seamless Authentication
-                    </div>
-                    <div className="text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Odio non tincidunt vitae varius faucibus. Vivamus
-                        viverra urna, suspendisse libero eget fames velit sit
-                        nec.
-                    </div>
-                </div>
+                <div className="flex flex-row justify-between px-48">
+                    <img src={GhostKeyboardImage} className="h-32" />
 
-                <div className="px-48 w-3/5">
-                    <div className="small-caps font-bold">
-                        The Promise of Intangibility
-                    </div>
-                    <div className="text-justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Odio non tincidunt vitae varius faucibus. Vivamus
-                        viverra urna, suspendisse libero eget fames velit sit
-                        nec.
+                    <div className="w-3/5">
+                        <div className="small-caps font-bold">
+                            The Promise of Intangibility
+                        </div>
+                        <div className="text-justify">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Odio non tincidunt vitae varius faucibus.
+                            Vivamus viverra urna, suspendisse libero eget fames
+                            velit sit nec.
+                        </div>
                     </div>
                 </div>
 
@@ -94,8 +116,8 @@ const Home = () => {
                     <hr className="w-2/6 mt-5 h-5" />
                 </div>
 
-                <div className="px-48 w-3/5">
-                    <div className="text-justify">
+                <div className="flex flex-row justify-between px-48">
+                    <div className="text-justify w-3/5">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Feugiat accumsan massa nibh viverra ligula laoreet nisl
                         aliquet sapien. Sit semper dictumst metus, morbi iaculis
@@ -108,6 +130,8 @@ const Home = () => {
                         pretium. In est nisl at curabitur sapien, ultricies
                         integer aenean. Eu nunc eget posuere morbi quis.
                     </div>
+
+                    <img src={QRCodeImage} className="h-44" />
                 </div>
             </div>
 
