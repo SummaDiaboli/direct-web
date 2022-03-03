@@ -16,8 +16,12 @@ const Header = () => {
     return (
         <div>
             <header className="flex flex-row justify-between bg-[#12141C] h-20 items-center px-48 shadow-md">
-                <Link to={Routes.HOME}>
+                <Link to={Routes.HOME} className="flex flex-row items-center space-x-2">
                     <img src={Logo} className="h-12" />
+                    <div className="flex flex-col items-center space-y-1">
+                        <span className="small-caps text-white text-xl">Direct</span>
+                        <div className="bg-white h-1 w-16 rounded-md" />
+                    </div>
                 </Link>
 
                 <nav className="flex flex-row space-x-4 text-white items-center small-caps">

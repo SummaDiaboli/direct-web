@@ -4,6 +4,7 @@ import Routes from "../utils/routes";
 import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import MagicPage from "../pages/SignUp/MagicPage";
+import QRPage from "../pages/Login/QRPage";
 
 const App = () => {
     return (
@@ -12,6 +13,7 @@ const App = () => {
             <Route path={Routes.SIGNUP} element={<SignUp />} />
             <Route path={Routes.LOGIN} element={<Login />} />
             <Route path={Routes.MAGICPAGE} element={<MagicPage />} />
+            <Route path={Routes.QRPAGE} element={<QRPage/>} />
         </BrowserRoutes>
     );
 };

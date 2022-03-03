@@ -8,6 +8,7 @@ import { useState } from "react";
 const SignUp = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
+    const id = "21223";
 
     return (
         <div className="bg-[#383B3F] min-h-screen">
@@ -56,7 +57,7 @@ const SignUp = () => {
                     </div>
 
                     <div className="flex flex-col mt-10 items-center space-y-2">
-                        <Link to={`${Routes.SIGNUP}/${username}`}>
+                        <Link to={`${Routes.SIGNUP}/${id}`}>
                             <button className="bg-[#6384C5] py-3 w-[18rem] rounded-lg hover:shadow-lg group">
                                 <span className="text-white text-lg small-caps">
                                     Create Account
