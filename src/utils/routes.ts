@@ -6,7 +6,8 @@ enum Routes {
     SIGNUP = "/sign-up",
     LOGIN = "/login",
     MAGICPAGE = "/sign-up/:id",
-    QRPAGE = "/login/:id"
+    QRPAGE = "/login/:id",
+    PROFILE = "/profile"
 }
 
 export default Routes;
