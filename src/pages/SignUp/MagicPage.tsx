@@ -2,9 +2,15 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Logo from "../../assets/images/Icon_Logo.svg";
 import { useEffect } from "react";
+import axios from "axios";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Routes from "../../utils/routes";
 
 const MagicPage = () => {
     const userCode: (string | number)[] = ["", "", "", "", "", ""];
+    const validate: boolean[] = [false, false, false, false, false, false];
+    const navigator = useNavigate();
+    const { id } = useParams();
 
     const generateInputFields = () => {
         const elements = [];
@@ -30,11 +36,12 @@ const MagicPage = () => {
         currentIndex: number
     ) => {
         /* Makes sure the key pressed is alphanumeric */
-        const key = e.target.value.toLowerCase();
+        const key = e.target.value.toString();
         if (key.length !== 1) {
             return;
         }
-        const isLetter = key >= "a" && key <= "z";
+        // const isLetter = key >= "a" && key <= "z";
+        const isLetter = key.length === 1 && !!key.match(/[a-z]/i);
         const isNumber = key >= "0" && key <= "9";
         if (isLetter || isNumber) {
             userCode[currentIndex] = key;
@@ -51,7 +58,6 @@ const MagicPage = () => {
 
     const validateCode = () => {
         /* Makes sure there is no empty string in the userCode */
-        const validate: boolean[] = [false, false, false, false, false, false];
         userCode.map((value, index) => {
             if (value === "") {
                 validate[index] = false;
@@ -60,11 +66,34 @@ const MagicPage = () => {
             }
         });
         if (!validate.includes(false)) {
-            console.log("valid");
-            console.log(userCode);
+            // console.log("valid");
+            // console.log(userCode);
+            sendVerification(userCode.join(""));
         } else {
             console.log("invalid");
         }
+    };
+
+    const sendVerification = (code: string) => {
+        // console.log(code);
+        // console.log(id);
+        axios
+            .post("http://127.0.0.1:8080/api/confirm-token", {
+                user_id: id,
+                token: code,
+            })
+            .then((res) => {
+                console.log(res.data);
+                if (res.status !== 200) {
+                    console.log("Invalid token");
+                } else {
+                    navigator(Routes.PROFILE);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                // TODO: Reset all the input fields
+            });
     };
 
     return (
