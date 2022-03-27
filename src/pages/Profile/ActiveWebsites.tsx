@@ -21,7 +21,6 @@ function ActiveWebsites() {
             accessed: "1/3/2022 3:06 PM GMT+1",
             expires: "3/3/2022 3:20 PM GMT+1",
         },
-        
     ];
 
     return (

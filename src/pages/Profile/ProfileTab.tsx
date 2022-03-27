@@ -70,7 +70,7 @@ function ProfileTab() {
                         type="tel"
                         placeholder="09058531700"
                         className="bg-[#383B3F] w-full text-white rounded-sm py-1 pl-2"
-                        maxLength={11} 
+                        maxLength={11}
                     />
                 </div>
                 <br />
@@ -84,7 +84,10 @@ function ProfileTab() {
                 </span>
                 <br />
                 <div>
-                    <textarea className="bg-[#383B3F] w-full text-white rounded-sm py-1 pl-2" placeholder="Enter your Address.." />
+                    <textarea
+                        className="bg-[#383B3F] w-full text-white rounded-sm py-1 pl-2"
+                        placeholder="Enter your Address.."
+                    />
                 </div>
             </div>
         </div>

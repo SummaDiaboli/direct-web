@@ -15,11 +15,13 @@ const Profile = () => {
             <Header />
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-10 ml-20">
-                <ProfileTab />
-                <ActiveWebsites />
-              </div>
-              <div className="p-10 mr-20"> <History / > </div>
+                <div className="p-10 ml-20">
+                    <ProfileTab />
+                    <ActiveWebsites />
+                </div>
+                <div className="p-10 mr-20">
+                    <History />
+                </div>
             </div>
             <Footer />
         </div>
