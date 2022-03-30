@@ -69,7 +69,7 @@ const TokenComponent: React.FC<TokenProp> = ({
                     </div>
                 </div>
                 <div>{accessed}</div>
-                <div className="flex flex-row items-center min-w-[22rem] justify-between">
+                <div className="flex flex-row items-center min-w-[20rem] justify-between">
                     <div>{expires}</div>
                     <div>
                         <FaTrash size={18} className="hover:cursor-pointer" />
