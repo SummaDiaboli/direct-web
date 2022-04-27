@@ -1,16 +1,19 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Logo from "../../assets/images/Icon_Logo.svg";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Routes from "../../utils/routes";
+import { setCookie } from "react-use-cookie";
+import AuthContext from "../../contexts/AuthContext";
 
 const MagicPage = () => {
     const userCode: (string | number)[] = ["", "", "", "", "", ""];
     const validate: boolean[] = [false, false, false, false, false, false];
     const navigator = useNavigate();
     const { id } = useParams();
+    const auth = useContext(AuthContext);
 
     const generateInputFields = () => {
         const elements = [];
@@ -87,7 +90,9 @@ const MagicPage = () => {
                 if (res.status !== 200) {
                     console.log("Invalid token");
                 } else {
-                    navigator(Routes.PROFILE);
+                    setCookie("user", JSON.stringify(res.data));
+                    auth.updateUserData(res.data);
+                    navigator(`/profile/${id}`);
                 }
             })
             .catch((err) => {

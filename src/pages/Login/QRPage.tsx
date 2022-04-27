@@ -4,7 +4,7 @@ import Logo from "../../assets/images/Icon_Logo.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
-import { getCookie, setCookie } from "react-use-cookie";
+import { setCookie } from "react-use-cookie";
 import AuthContext from "../../contexts/AuthContext";
 
 const QRPage = () => {
@@ -26,11 +26,11 @@ const QRPage = () => {
             .get(`http://127.0.0.1:8080/api/verify/${id}`)
             .then((res) => {
                 console.log(res.data);
+                setCookie("user", JSON.stringify(res.data));
+                auth.updateUserData(res.data);
                 navigation(`/profile/${res.data.id}`, {
                     replace: true,
                 });
-                setCookie("user", JSON.stringify(res.data));
-                auth.updateUserData(res.data);
             })
             .catch((err) => {
                 console.log(err);
