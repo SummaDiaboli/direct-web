@@ -27,11 +27,19 @@ const SignUp = () => {
 
     const signUp = () => {
         axios
-            .post("http://127.0.0.1:8080/api/users", {
-                username,
-                email,
-                "website": "Direct Security Official"
-            })
+            .post(
+                "http://127.0.0.1:8080/api/users",
+                {
+                    username,
+                    email,
+                    website: "Direct Security Official",
+                },
+                {
+                    headers: {
+                        referer: "Direct Web",
+                    },
+                }
+            )
             .then((res: AxiosResponse<Response, Response>) => {
                 if (res.status === 201) {
                     navigator(`${Routes.SIGNUP}/${res.data.id}`);
