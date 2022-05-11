@@ -28,7 +28,8 @@ const SignUp = () => {
     const signUp = () => {
         axios
             .post(
-                "http://127.0.0.1:8080/api/users",
+                // "http://127.0.0.1:8080/api/users",
+                "https://directsecure.herokuapp.com/api/users",
                 {
                     username,
                     email,
@@ -115,7 +116,7 @@ const SignUp = () => {
                 </div>
             </div>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };

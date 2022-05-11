@@ -23,7 +23,8 @@ const QRPage = () => {
         // console.log(cookieExists);
         // if (!cookie)
         axios
-            .get(`http://127.0.0.1:8080/api/verify/${id}`)
+            // .get(`http://127.0.0.1:8080/api/verify/${id}`)
+            .get(`https://directsecure.herokuapp.com/api/verify/${id}`)
             .then((res) => {
                 console.log(res.data);
                 setCookie("user", JSON.stringify(res.data));
@@ -64,16 +65,16 @@ const QRPage = () => {
                     <div className="mt-6">
                         <img
                             ref={imgEl}
-                            src={`http://127.0.0.1:8080/api/generate/${id}`}
+                            src={`https://directsecure.herokuapp.com/api/generate/${id}`}
                             onLoad={() => setLoaded(true)}
                         />
                     </div>
                 </div>
             </div>
 
-            <div className="mt-16">
+            {/* <div className="mt-16">
                 <Footer />
-            </div>
+            </div> */}
         </div>
     );
 };

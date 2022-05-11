@@ -17,7 +17,8 @@ const Login = () => {
 
     const login = () => {
         axios
-            .get(`http://127.0.0.1:8080/api/login/${username}`)
+            // .get(`http://127.0.0.1:8080/api/login/${username}`)
+            .get(`https://directsecure.herokuapp.com/api/login/${username}`)
             .then((res) => {
                 console.log(res);
                 id = res.data.id
@@ -80,9 +81,9 @@ const Login = () => {
                 </div>
             </div>
 
-            <div className="mt-16">
+            {/* <div className="mt-16">
                 <Footer />
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/Icon_Logo.svg";
 import AuthContext from "../contexts/AuthContext";
 import Routes from "../utils/routes";
+import { Popover } from "@headlessui/react";
+// import { useCookies } from "react-cookie";
+import Cookies from "universal-cookie";
 // import Footer from "./Footer";
 
 type User = {
@@ -13,9 +16,12 @@ type User = {
 
 const Header = () => {
     const location = useLocation().pathname;
+    const navigator = useNavigate();
     const [userData, setUserData] = useState<User>(null);
+    const cookies = new Cookies();
     // const [auth, setAuth] = useState(useContext(AuthContext));
     const auth = useContext(AuthContext);
+    // const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 
     // const auth = useContext(AuthContext);
     // const userData: User = auth.data;
@@ -32,6 +38,12 @@ const Header = () => {
         { name: "Hows Does It Work", link: "." },
         { name: "Download", link: "." },
     ];
+
+    const logOut = () => {
+        // removeCookie("user");
+        cookies.remove("user");
+        navigator("/", { replace: true });
+    };
 
     return (
         <div>
@@ -63,13 +75,30 @@ const Header = () => {
                     ))}
 
                     {auth.isAuthenticated ? (
-                        <Link to={`/profile/${userData?.id}`}>
-                            <button className="bg-white border rounded-md text-black px-4 py-2 hover:bg-[#12141C] hover:text-white hover:border hover:border-white">
+                        <Popover className="relative">
+                            <Popover.Button className="bg-white border rounded-md text-black px-4 py-2 hover:bg-[#12141C] hover:text-white hover:border hover:border-white">
                                 <div className="small-caps">
                                     {userData?.username}
                                 </div>
-                            </button>
-                        </Link>
+                            </Popover.Button>
+
+                            <Popover.Panel className="absolute z-10 bg-[#222635] w-36 -right-3 rounded-md">
+                                <div className="flex flex-col justify-center items-center my-2 gap-3">
+                                    <Link
+                                        to={`/profile/${userData?.id}`}
+                                        className="hover:text-gray-300"
+                                    >
+                                        My Account
+                                    </Link>
+                                    <div
+                                        className="hover:text-gray-300 cursor-pointer"
+                                        onClick={logOut}
+                                    >
+                                        Log Out
+                                    </div>
+                                </div>
+                            </Popover.Panel>
+                        </Popover>
                     ) : (
                         <Link to={Routes.SIGNUP}>
                             <button className="bg-white border rounded-md text-black px-4 py-2 hover:bg-[#12141C] hover:text-white hover:border hover:border-white">

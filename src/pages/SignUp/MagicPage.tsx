@@ -81,7 +81,8 @@ const MagicPage = () => {
         // console.log(code);
         // console.log(id);
         axios
-            .post("http://127.0.0.1:8080/api/confirm-token", {
+            // .post("http://127.0.0.1:8080/api/confirm-token",
+            .post("https://directsecure.herokuapp.com/api/confirm-token", {
                 user_id: id,
                 token: code,
             })
@@ -128,7 +129,7 @@ const MagicPage = () => {
                 </div>
             </div>
 
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
